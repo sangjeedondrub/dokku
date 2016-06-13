@@ -84,7 +84,7 @@ git_build_cmd() {
   [[ $(flock -n "$APP_BUILD_LOCK" true &>/dev/null ; echo $?) -ne 0 ]] && echo "$APP_BUILD_LOCK_MSG"
 
   shift 1
-  flock -o "$APP_BUILD_LOCK" dokku git-build-locked "$@"
+  flock -o "$APP_BUILD_LOCK" git_build_locked_cmd "git-build-locked" "$@"
 }
 
 git_build_locked_cmd() {
