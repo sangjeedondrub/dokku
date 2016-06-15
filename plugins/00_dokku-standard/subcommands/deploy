@@ -91,7 +91,7 @@ dokku_deploy_cmd() {
         kill -9 $$
       }
 
-      # run checks first, then post-deploy hooks, which switches Nginx traffic
+      # run checks first, then post-deploy hooks, which switches proxy traffic
       if [[ "$(is_app_checks_enabled "$APP")" == "false" ]]; then
         dokku_log_info1 "zero downtime is disabled for app ($APP). skipping pre-flight checks"
       else
